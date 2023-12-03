@@ -1,0 +1,19 @@
+.fade-in-image { animation: fadeIn 5s; align-content: center; size-adjust: 40%;}
+.background-color{
+    background-color: black;
+}
+
+.cli-text {
+    position: relative;
+    font-family: monospace;
+    background-color: black;
+    text-decoration: none;
+    color: green;
+    font-size: 1.5em;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  
