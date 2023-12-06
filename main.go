@@ -1,19 +1,29 @@
 package main
 
 import (
-	"net/http"
+	"fmt"
+	"pubnoise/db"
 
-	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 )
 
 func main() {
-	router := gin.Default()
-	router.LoadHTMLGlob("views/*")
-	router.Static("/assets", "./assets")
-	router.GET("/", func(c *gin.Context) {
-		c.HTML(http.StatusOK, "index.html", func() {})
-	})
+	err := godotenv.Load()
+	if err != nil {
+		err = fmt.Errorf("%s", err)
+		fmt.Println(err)
+	}
+	db.Connection()
 
-	router.Run()
+	// router := gin.Default()
+	// router.LoadHTMLGlob("views/*")
+	// router.Static("/assets", "./assets")
+
+	// router.GET("/", func(c *gin.Context) {
+
+	// 	c.HTML(http.StatusOK, "index.html", func() {})
+	// })
+
+	// router.Run()
 
 }
